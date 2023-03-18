@@ -2,6 +2,7 @@ import style from "../styles/Home.module.css";
 import { useState, useEffect } from "react";
 import pptx from "pptxgenjs";
 import { useSocket } from "../context/socketProvider";
+import Image from "next/image";
 export default function Home() {
   const [messages, setMessages] = useState([]);
   const [recording, setRecording] = useState(false);
@@ -339,7 +340,7 @@ export default function Home() {
         <ul>
           {requests &&
             requests?.map(function (value) {
-              return <li>{value}</li>;
+              return <li key={value}>{value}</li>;
             })}
         </ul>
       </section>
@@ -377,7 +378,12 @@ export default function Home() {
               onClick={() => record()}
             >
               {" "}
-              <img alt="Microphone" src="/microphone.png"></img>
+              <Image
+                width={14}
+                height={20}
+                alt="Microphone"
+                src="/microphone.png"
+              ></Image>
             </button>
             <button type="submit">Send</button>
           </form>

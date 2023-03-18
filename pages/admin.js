@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSocket } from "../context/socketProvider";
-export default function admin() {
+export default function Admin() {
   const [requests, setRequests] = useState([]);
   const socket = useSocket();
 
@@ -15,7 +15,7 @@ export default function admin() {
     <div>
       {requests &&
         requests?.map(function (value) {
-          return <p>{value}</p>;
+          return <p key={value}>{value}</p>;
         })}
       {requests.length == 0 && <p>No requests yet</p>}
     </div>

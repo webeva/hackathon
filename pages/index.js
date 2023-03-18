@@ -353,7 +353,7 @@ export default function Home() {
           {messages &&
             messages?.map(function (index) {
               return (
-                <p>
+                <p key={index}>
                   <b>{index.role == "user" ? "You" : "ConnectBot"}</b>:{" "}
                   {index.content}
                 </p>

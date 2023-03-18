@@ -155,7 +155,8 @@ export default function Home() {
             addQuestion("That is not an item on the menu");
           }
         } else if (lowerCase.includes("presentation")) {
-          let words = text.substring(text.indexOf("on") + 1);
+          const words = text.split("about")[1];
+          console.log(words);
 
           addQuestion(
             `Generating presentation on ${words}. This may take a while...`

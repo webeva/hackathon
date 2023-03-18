@@ -381,7 +381,7 @@ export default function Home() {
               <Image
                 width={14}
                 height={20}
-                alt="Microphone"
+                alt="Microphone 1"
                 src="/microphone.png"
               ></Image>
             </button>

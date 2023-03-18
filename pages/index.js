@@ -40,6 +40,11 @@ export default function Home() {
     "23:15",
   ];
 
+  useEffect(() => {
+    const objDiv = document.getElementById("messageContainer");
+    objDiv.scrollTop = objDiv.scrollHeight;
+  }, [messages]);
+
   async function sendMessage() {
     const text = document.getElementById("messageInput").value;
 
@@ -62,6 +67,11 @@ export default function Home() {
     //Pre-defined responses
     if (check.includes("yourname")) {
       addQuestion("My name is ConnectBot");
+    } else if (check.includes("yourgender") || check.includes("boyorgirl")) {
+      addQuestion("I don't have a gender, I am an AI.");
+    } else if (check.includes("stop") || check.includes("shutup")) {
+      const synth = window.speechSynthesis;
+      synth.cancel();
     } else if (check.includes("van")) {
       if (check.includes("nextvan")) {
         const now = new Date();
@@ -99,11 +109,11 @@ export default function Home() {
         } else {
           addQuestion("There are no more van departures today.");
         }
+      } else if (check.includes("firstvan")) {
+        addQuestion("The first van leaves AUI at 7:05 AM");
+      } else if (check.includes("lastvan")) {
+        addQuestion("The last van leaves AUI at 23:15 PM");
       }
-    } else if (check.includes("firstvan")) {
-      addQuestion("The first van leaves AUI at 7:05 AM");
-    } else if (check.includes("lastvan")) {
-      addQuestion("The last van leaves AUI at 23:15 PM");
     } else {
       await fetch("/api/classifyPrompt", {
         method: "POST",
@@ -186,7 +196,7 @@ export default function Home() {
 
                 The MORHEL Project's kick-off meetingThe MORHEL Project's kick-off meeting will take place on 1-3 March 2023 at the ACC in Ifrane. 
                 `);
-        } else if (lowerCase.includes("task")) {
+        } else if (lowerCase.includes("task") && check.includes("task")) {
           const lowercase = text.toLowerCase();
 
           const word = lowercase.split("add").pop().split("to")[0];

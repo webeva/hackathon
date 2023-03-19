@@ -354,6 +354,23 @@ export default function Home() {
         <section className={style.title}>
           <h1>Campus</h1>
           <h2>Connect</h2>
+
+          <p className={style.bar}>
+            <img
+              onClick={() => {
+                if (
+                  document.getElementById("sideBar").style.display == "none"
+                ) {
+                  document.getElementById("sideBar").style.display = "block";
+                } else {
+                  document.getElementById("sideBar").style.display = "none";
+                }
+              }}
+              src="/hamburger-menu.svg"
+              width={30}
+              height={30}
+            ></img>
+          </p>
         </section>
         <section id="messageContainer" className={style.messageContainer}>
           {messages &&

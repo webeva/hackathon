@@ -1,7 +1,7 @@
 {
     "theme_color": "#7ed321",
     "background_color": "#7ed321",
-    "display": "browser",
+    "display": "standalone",
     "scope": "/",
     "start_url": "/",
     "name": "CampusConnect",

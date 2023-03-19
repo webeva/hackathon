@@ -22,6 +22,7 @@ export default async function handler(req, res) {
       frequency_penalty: 0,
       presence_penalty: 0.6,
     });
+    console.log(response.data.choices[0].text);
 
     const result = response.data.choices[0].text;
     return res.status(200).send(result);

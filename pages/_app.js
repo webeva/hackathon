@@ -7,6 +7,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <title>CampusConnect</title>
+        <link rel="manifest" href="/manifest.json" />
       </Head>
       <SocketProvider>
         <Component {...pageProps} />

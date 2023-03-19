@@ -156,7 +156,6 @@ export default function Home() {
           }
         } else if (lowerCase.includes("presentation")) {
           const words = text.split("about")[1];
-          console.log(words);
 
           addQuestion(
             `Generating presentation on ${words}. This may take a while...`
